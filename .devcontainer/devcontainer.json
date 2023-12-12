@@ -1,0 +1,37 @@
+{
+  "name": "universal",
+  "image": "shixinhuang/devcontainer:universal",
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vadimcn.vscode-lldb",
+        "tamasfe.even-better-toml",
+        "rust-lang.rust-analyzer",
+        "mhutchie.git-graph",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "foxundermoon.shell-format",
+        "dbaeumer.vscode-eslint"
+      ],
+      "settings": {
+        "files.associations": {
+          "justfile": "makefile"
+        },
+        "rust-analyzer.check.command": "clippy",
+        "rust-analyzer.completion.autoimport.enable": false,
+        "rust-analyzer.completion.callable.snippets": "none",
+        "rust-analyzer.inlayHints.chainingHints.enable": false,
+        "rust-analyzer.inlayHints.closingBraceHints.enable": false,
+        "rust-analyzer.inlayHints.parameterHints.enable": false,
+        "rust-analyzer.inlayHints.typeHints.enable": false,
+        "[rust]": {
+          "editor.defaultFormatter": "rust-lang.rust-analyzer"
+        }
+      }
+    }
+  },
+  "workspaceMount": "source=workspace,target=/workspace,type=volume",
+  "workspaceFolder": "/workspace",
+  "postCreateCommand": "sudo chown vscode /workspace"
+}

@@ -1,0 +1,5 @@
+*.sh
+LICENSE
+README.md
+.devcontainer
+!init.sh
