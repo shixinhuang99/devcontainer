@@ -31,7 +31,12 @@
       }
     }
   },
-  "workspaceMount": "source=workspace,target=/workspace,type=volume",
-  "workspaceFolder": "/workspace",
-  "postCreateCommand": "sudo chown vscode /workspace"
+  "mounts": [
+    {
+      "source": "workspace",
+      "target": "/home/vscode/workspace",
+      "type": "volume"
+    }
+  ],
+  "runArgs": ["--network=host"]
 }
