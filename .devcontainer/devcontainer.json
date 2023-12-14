@@ -27,7 +27,8 @@
         "rust-analyzer.inlayHints.typeHints.enable": false,
         "[rust]": {
           "editor.defaultFormatter": "rust-lang.rust-analyzer"
-        }
+        },
+        "terminal.integrated.defaultProfile.linux": "fish"
       }
     }
   },
