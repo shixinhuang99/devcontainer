@@ -8,6 +8,9 @@ sudo chown vscode /home/vscode/workspace
 
 ```bash
 sudo passwd root
+```
+
+```bash
 sudo passwd vscode
 ```
 
