@@ -1,3 +1,5 @@
+# Init
+
 #### workspace permission
 
 ```bash
@@ -25,3 +27,7 @@ fnm env --use-on-cd | source
 ```
 
 to your `is-interactive` block in your `~/.config/fish/config.fish` file
+
+# Known issues
+
+ - Updating the toolchain via `rustup` will fail, you need to uninstall and reinstall manually
