@@ -21,3 +21,4 @@ jobs:
         with:
           push: false
           tags: shixinhuang/devcontainer:universal
+          platforms: linux/arm64

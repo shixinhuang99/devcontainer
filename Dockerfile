@@ -12,15 +12,16 @@ USER vscode
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal
 
 RUN . $HOME/.profile \
-	&& cargo install --locked just \
-	&& cargo install --locked taplo-cli \
-	&& cargo install --locked git-cliff \
-	&& cargo install --locked cargo-edit --bin cargo-set-version \
-	&& cargo install --locked atuin \
-	&& cargo install --locked bat \
-	&& cargo install --locked ripgrep \
-	&& cargo install --locked coreutils \
-	&& cargo install --locked fnm \
+	&& curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash \
+	&& cargo binstall --no-confirm just \
+	&& cargo binstall --no-confirm taplo-cli \
+	&& cargo binstall --no-confirm git-cliff \
+	&& cargo binstall --no-confirm cargo-edit --bin cargo-set-version \
+	&& cargo binstall --no-confirm atuin \
+	&& cargo binstall --no-confirm bat \
+	&& cargo binstall --no-confirm ripgrep \
+	&& cargo binstall --no-confirm coreutils \
+	&& cargo binstall --no-confirm fnm \
 	&& fnm install 20 \
 	&& fnm install 18 \
 	&& fnm default 20
