@@ -13,8 +13,8 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --pr
 
 RUN . $HOME/.profile \
 	&& cargo install cargo-edit --no-default-features --features set-version \
+	&& cargo install taplo-cli \
 	&& curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash \
-	&& cargo binstall --no-confirm taplo --pkg-url="https://github.com/tamasfe/taplo/releases/download/0.8.1/taplo-linux-aarch64.gz" --pkg-fmt="gz" \
 	&& cargo binstall --no-confirm just \
 	&& cargo binstall --no-confirm git-cliff \
 	&& cargo binstall --no-confirm atuin \
@@ -23,6 +23,7 @@ RUN . $HOME/.profile \
 	&& cargo binstall --no-confirm fnm \
 	&& fnm install 20 \
 	&& fnm install 18 \
+	&& fnm install 16 \
 	&& fnm default 20
 
 RUN echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_11/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list \
