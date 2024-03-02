@@ -14,9 +14,9 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --pr
 RUN . $HOME/.profile \
 	&& curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash \
 	&& cargo binstall --no-confirm just \
-	&& cargo binstall --no-confirm taplo-cli \
+	&& cargo install taplo-cli \
 	&& cargo binstall --no-confirm git-cliff \
-	&& cargo binstall --no-confirm cargo-edit --bin cargo-set-version \
+	&& cargo install cargo-edit --bin cargo-set-version \
 	&& cargo binstall --no-confirm atuin \
 	&& cargo binstall --no-confirm bat \
 	&& cargo binstall --no-confirm ripgrep \
