@@ -14,13 +14,15 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --pr
 RUN . $HOME/.profile \
 	&& curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash \
 	&& cargo binstall --no-confirm just \
-	&& cargo install taplo-cli \
+	&& cargo binstall --no-confirm \
+	--pkg-url="https://github.com/tamasfe/taplo/releases/download/0.8.1/taplo-linux-aarch64.gz" \
+	--pkg-fmt="gz" \
+	taplo \
 	&& cargo binstall --no-confirm git-cliff \
-	&& cargo install cargo-edit --bin cargo-set-version \
+	&& cargo install cargo-edit --no-default-features --features set-version \
 	&& cargo binstall --no-confirm atuin \
 	&& cargo binstall --no-confirm bat \
 	&& cargo binstall --no-confirm ripgrep \
-	&& cargo binstall --no-confirm coreutils \
 	&& cargo binstall --no-confirm fnm \
 	&& fnm install 20 \
 	&& fnm install 18 \
