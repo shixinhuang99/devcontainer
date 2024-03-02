@@ -17,7 +17,7 @@ RUN . $HOME/.profile \
 	&& curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash \
 	&& cargo binstall --no-confirm just \
 	&& cargo binstall --no-confirm git-cliff \
-	&& bash <(curl https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh) \
+	&& curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh | bash \
 	&& cargo binstall --no-confirm bat \
 	&& cargo binstall --no-confirm ripgrep \
 	&& cargo binstall --no-confirm fnm \
