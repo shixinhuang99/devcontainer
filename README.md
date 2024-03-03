@@ -2,25 +2,25 @@
 
 #### workspace permission
 
-```bash
+```sh
 sudo chown vscode /home/vscode/workspace
 ```
 
 #### reset password
 
-```bash
+```sh
 sudo passwd root
 ```
 
-```bash
+```sh
 sudo passwd vscode
 ```
 
-#### fish & atuin & fnm
+#### fish
 
 Add
 
-```bash
+```sh
 fish_add_path $HOME/.cargo/bin
 atuin init fish | source
 fnm env --use-on-cd | source
@@ -28,29 +28,38 @@ fnm env --use-on-cd | source
 
 to your `is-interactive` block in your `~/.config/fish/config.fish` file
 
+# Manually installing some of the tools takes a very long time to compile because of QEMU
+
+```sh
+cargo install atuin
+cargo install cargo-edit --no-default-features --features set-version
+cargo install taplo-cli
+```
+
 # Known issues
 
- - Updating the toolchain via `rustup` will fail, you need to uninstall and reinstall manually
+- Updating the toolchain via `rustup` will fail, you need to uninstall and reinstall manually
 
- - Can't use GPG keys
-   ```bash
-   error: gpg failed to sign the data:
-   gpg: can't connect to the agent: End of file
-   gpg: keydb_search failed: No agent running
-   gpg: skipped "...": No agent running
-   [GNUPG:] INV_SGNR 0 ...
-   [GNUPG:] FAILURE sign ...
-   gpg: signing failed: No agent running
-   ```
+- Can't use GPG keys
 
-   Make sure the `gpg-agent` is running on the host
+  ```sh
+  error: gpg failed to sign the data:
+  gpg: can't connect to the agent: End of file
+  gpg: keydb_search failed: No agent running
+  gpg: skipped "...": No agent running
+  [GNUPG:] INV_SGNR 0 ...
+  [GNUPG:] FAILURE sign ...
+  gpg: signing failed: No agent running
+  ```
 
-   ```bash
-   eval $(gpg-agent --daemon)
-   ```
+  Make sure the `gpg-agent` is running on the host
 
-   And the GPG key has been imported
+  ```sh
+  eval $(gpg-agent --daemon)
+  ```
 
-   ```bash
-   gpg --list-secret-keys
-   ```
+  And the GPG key has been imported
+
+  ```sh
+  gpg --list-secret-keys
+  ```
