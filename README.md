@@ -28,7 +28,7 @@ fnm env --use-on-cd | source
 
 to your `is-interactive` block in your `~/.config/fish/config.fish` file
 
-# Manually installing some of the tools takes a very long time to compile because of QEMU
+# Manually install the following tools because using QEMU during the image building stage results in very long compilation times
 
 ```sh
 cargo install atuin
